@@ -32,8 +32,8 @@ const {
 
   try {
     const configuration = new SeleniumConfiguration();
-    configuration.appName = "Eyes Examples";
-    configuration.testName = "My first Javascript test!";
+    configuration.appName = "Demo app";
+    configuration.testName = "WebdriverIO Visual Grid test!";
 
     //Add Chrome browser (1200 X 800)
     configuration.addBrowser(1200, 800, BrowserType.CHROME);
