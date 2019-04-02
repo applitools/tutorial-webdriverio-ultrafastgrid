@@ -1,0 +1,15 @@
+{
+  "name": "tutorial-webdriverio-visualgrid",
+  "version": "1.0.0",
+  "description": "WebdriverIO Applitools Visual Grid example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raja Rao Dv",
+  "license": "ISC",
+  "devDependencies": {
+    "@applitools/eyes-selenium": "^4.12.0",
+    "@applitools/eyes.webdriverio": "^2.1.1-beta.0"
+  }
+}
