@@ -59,11 +59,11 @@ const {
     // Visual checkpoint #1.
     await eyes.check("Login Page", Target.window());
 
-    // Click the "Click me!" button.
+    // Click the "Log in" button.
     await driver.click(By.id("log-in"));
 
     // Visual checkpoint #2.
-    await eyes.check("Click!", Target.window());
+    await eyes.check("App page", Target.window());
 
     console.log(
       `Please wait, we are now..
