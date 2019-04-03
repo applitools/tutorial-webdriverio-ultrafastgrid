@@ -35,14 +35,16 @@ const {
     configuration.appName = "Demo app";
     configuration.testName = "WebdriverIO Visual Grid test!";
 
-    //Add Chrome browser (1200 X 800)
-    configuration.addBrowser(1200, 800, BrowserType.CHROME);
+    //Add Chrome browser with two different viewports
+    config.addBrowser(800, 600, BrowserType.CHROME);
+    config.addBrowser(700, 500, BrowserType.CHROME);
 
-    //Add Firefox browser (1200 X 800)
-    configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+    //Add Firefox browser with two different viewports
+    config.addBrowser(1200, 800, BrowserType.FIREFOX);
+    config.addBrowser(1600, 1200, BrowserType.FIREFOX);
 
-    //Add iPhone4 device emulation in Portrait mode
-    configuration.addDevice(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
+    //Add iPhone 4 with Portrait mode
+    config.addDevice(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
 
     // Set your private API key here or in the "APPLITOOLS_API_KEY" environment variable
     configuration.apiKey = process.env.APPLITOOLS_API_KEY;
