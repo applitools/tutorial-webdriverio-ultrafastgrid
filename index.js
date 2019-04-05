@@ -1,19 +1,19 @@
 "use strict";
 
-const chromedriver = require("chromedriver");
-const webdriverio = require("webdriverio");
+const chromedriver = require('chromedriver');
+const webdriverio = require('webdriverio');
 const {
   By,
   Eyes,
   Target,
   VisualGridRunner
-} = require("@applitools/eyes.webdriverio");
+} = require('@applitools/eyes.webdriverio');
 const {
   BrowserType,
-  SeleniumConfiguration,
+  Configuration,
   DeviceName,
   ScreenOrientation
-} = require("@applitools/eyes-selenium");
+} = require('@applitools/eyes-selenium');
 
 (async () => {
   chromedriver.start();
@@ -21,7 +21,7 @@ const {
   // Open a Chrome browser.
   const chrome = {
     desiredCapabilities: {
-      browserName: "chrome"
+      browserName: 'chrome'
     }
   };
   let driver = webdriverio.remote(chrome);
@@ -31,24 +31,24 @@ const {
   const eyes = new Eyes(new VisualGridRunner(3));
 
   try {
-    const configuration = new SeleniumConfiguration();
-    configuration.appName = "Demo app";
-    configuration.testName = "WebdriverIO Visual Grid test!";
+    const configuration = new Configuration();
+    configuration.setAppName('Demo app');
+    configuration.setTestName('WebdriverIO Visual Grid test!');
 
     //Add Chrome browser with two different viewports
-    config.addBrowser(800, 600, BrowserType.CHROME);
-    config.addBrowser(700, 500, BrowserType.CHROME);
+    configuration.addBrowser(800, 600, BrowserType.CHROME);
+    configuration.addBrowser(700, 500, BrowserType.CHROME);
 
     //Add Firefox browser with two different viewports
-    config.addBrowser(1200, 800, BrowserType.FIREFOX);
-    config.addBrowser(1600, 1200, BrowserType.FIREFOX);
+    configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+    configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
 
     //Add iPhone 4 with Portrait mode
-    config.addDevice(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
+    configuration.addDeviceEmulation(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
 
     // Set your private API key here or in the "APPLITOOLS_API_KEY" environment variable
-    configuration.apiKey = process.env.APPLITOOLS_API_KEY;
-    eyes.configuration = configuration;
+    configuration.setApiKey(process.env.APPLITOOLS_API_KEY);
+    eyes.setConfiguration(configuration);
 
     driver = await eyes.open(driver);
 
