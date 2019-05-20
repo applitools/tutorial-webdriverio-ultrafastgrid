@@ -4,12 +4,12 @@
   "description": "WebdriverIO Applitools Visual Grid example",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js"
   },
   "author": "Raja Rao Dv",
   "license": "ISC",
   "devDependencies": {
-    "@applitools/eyes-selenium": "^4.14.0",
-    "@applitools/eyes.webdriverio": "^2.2.1-beta.0"
+    "@applitools/eyes-selenium": "^4.17.1",
+    "@applitools/eyes.webdriverio": "^2.4.0"
   }
 }
