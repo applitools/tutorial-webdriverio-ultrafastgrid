@@ -79,7 +79,7 @@ const {
 
     // End the test.
     // const results = await eyes.close(); // will return only first TestResults, but as we have two browsers, we need more results
-    const results = await eyes.getRunner().getAllResults(false);
+    const results = await eyes.getRunner().getAllTestResults(false);
     console.log(results);
   } finally {
     // Close the browser.
