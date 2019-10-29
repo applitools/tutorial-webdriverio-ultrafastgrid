@@ -81,6 +81,7 @@ const {
     // const results = await eyes.close(); // will return only first TestResults, but as we have two browsers, we need more results
     const results = await eyes.getRunner().getAllTestResults(false);
     console.log(results);
+    console.log(results.getAllResults());
   } finally {
     // Close the browser.
     await driver.end();
