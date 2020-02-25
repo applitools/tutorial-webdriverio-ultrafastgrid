@@ -11,9 +11,9 @@
 ### Running the example:
 
 1. Download the example
-    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio-visualgrid.git`
+    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio-ultrafastgrid.git`
     * Option 2: Download it as a Zip file and extract it
-2. CD into the `tutorial-webdriverio-visualgrid` folder
+2. CD into the `tutorial-webdriverio-ulgrafastgrid` folder
 3. run `npm install`
 4. run `node index.js`
 
