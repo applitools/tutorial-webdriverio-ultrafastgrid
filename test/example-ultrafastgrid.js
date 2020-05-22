@@ -19,30 +19,30 @@ let eyes;
 
 describe('wdio', function () {
 
-    beforeEach(async () => {
+    before(async () => {
         const chrome = {
             desiredCapabilities: {
                 browserName: 'chrome'
             }
         };
 
-        // Use Chrome browser
+        // Create a new chrome web driver
         driver = webdriverio.remote(chrome);
         await driver.init();
 
-        // Initialize the Runner for your test.
-        const runner = new VisualGridRunner();
+        // Create a runner with concurrency of 1
+        const runner = new VisualGridRunner(1);
 
-        // Initialize the eyes SDK
+        // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
         eyes = new Eyes(runner);
 
-        // Initialize the eyes configuration
+        // Initialize eyes Configuration
         const configuration = new Configuration();
 
         // You can get your api key from the Applitools dashboard
         configuration.setApiKey('APPLITOOLS_API_KEY')
 
-        // Set new batch
+        // create a new batch info instance and set it to the configuration
         configuration.setBatch(new BatchInfo('Ultrafast Batch'))
 
         // Add browsers with different viewports
@@ -62,10 +62,13 @@ describe('wdio', function () {
 
     it('Ultrafast grid Test', async () => {
 
-        // Start the test by setting AUT's name, test name and viewport size (width X height)
+        // Call Open on eyes to initialize a test session
         driver = await eyes.open(driver, 'Demo App', 'Ultrafast grid demo', new RectangleSize(800, 600));
 
         // Navigate the browser to the "ACME" demo app.
+        // ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
+        // but then change the above URL to https://demo.applitools.com/index_v2.html
+        // (for the 2nd run)
         await driver.url('https://demo.applitools.com');
 
         // To see visual bugs after the first run, use the commented line below instead.
@@ -84,17 +87,17 @@ describe('wdio', function () {
         await eyes.closeAsync();
     });
 
-    afterEach(async () => {
+    after(async () => {
         // Close the browser
         await driver.end();
 
         // If the test was aborted before eyes.close was called, ends the test as aborted.
-        await eyes.abortIfNotClosed();
+        await eyes.abortAsync();
 
-        // Wait and collect all test results
-        const results = await eyes.getRunner().getAllTestResults(false);
+        // we pass false to this method to suppress the exception that is thrown if we
+        // find visual differences
+        const results = await eyes.getRunner().getAllTestResults();
         console.log(results);
-        console.log(results.getAllResults());
     });
 
 });

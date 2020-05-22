@@ -11,6 +11,6 @@
   "devDependencies": {
     "webdriverio": "^4.14.4",
     "@applitools/eyes.webdriverio": "latest",
-    "mocha": "^6.2.2"
+    "mocha": "latest"
   }
 }
