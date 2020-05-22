@@ -92,11 +92,11 @@ describe('wdio', function () {
         await driver.end();
 
         // If the test was aborted before eyes.close was called, ends the test as aborted.
-        await eyes.abortIfNotClosed();
+        await eyes.abortAsync();
 
         // we pass false to this method to suppress the exception that is thrown if we
         // find visual differences
-        const results = await eyes.getRunner().getAllTestResults(false);
+        const results = await eyes.getRunner().getAllTestResults();
         console.log(results);
     });
 
