@@ -10,7 +10,8 @@ const {
     BatchInfo,
     BrowserType,
     DeviceName,
-    ScreenOrientation
+    ScreenOrientation,
+    RunnerOptions
 } = require('@applitools/eyes.webdriverio');
 
 
@@ -31,7 +32,8 @@ describe('wdio', function () {
         await driver.init();
 
         // Create a runner with concurrency of 1
-        const runner = new VisualGridRunner(1);
+        const runnerOptions = new RunnerOptions().testConcurrency(1);
+        const runner = new VisualGridRunner(runnerOptions);
 
         // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
         eyes = new Eyes(runner);
@@ -40,7 +42,7 @@ describe('wdio', function () {
         const configuration = new Configuration();
 
         // You can get your api key from the Applitools dashboard
-        configuration.setApiKey('APPLITOOLS_API_KEY')
+        configuration.setApiKey(process.env.APPLITOOLS_API_KEY || 'APPLITOOLS_API_KEY')
 
         // create a new batch info instance and set it to the configuration
         configuration.setBatch(new BatchInfo('Ultrafast Batch'))
