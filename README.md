@@ -7,8 +7,8 @@
 2. Chrome Webdriver is on your machine and is in the PATH. Here are some resources from the internet that'll help you.
    * Download the latest Chrome Webdriver https://chromedriver.chromium.org/
    * Setting it up (skip the download): https://splinter.readthedocs.io/en/0.1/setup-chrome.html
-   * https://stackoverflow.com/questions/38081021/using-selenium-on-mac-chrome
-   * https://www.youtube.com/watch?time_continue=182&v=dz59GsdvUF8  
+   * Or install with Homebrew: https://stackoverflow.com/questions/38081021/using-selenium-on-mac-chrome
+   * Install on Windows: https://www.youtube.com/watch?v=dz59GsdvUF8  
 3. Run the standalone server jar file - it should look something like below:
     * `java -jar selenium-server-standalone-3.141.59.jar` (Replace the jar file name with your jar file name) 
     * This will run Selenium on localhost and on port 4444
