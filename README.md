@@ -1,34 +1,14 @@
-# Applitools Tutorial - WebdriverIO Ultrafast Grid
+# Applitools Tutorial - WebdriverIO 6 Ultrafast Grid
 
-## Pre-requisites:
+Get started with Applitools visual testing with this example of using the Ultrafast Grid with the Applitools WebdriverIO 6 SDK.
 
-1. Download Selenium Standalone server [here](https://www.seleniumhq.org/download/)
-    * Note that this is a `jar` file. So you should also have Java installed on your machine.
-2. Chrome Webdriver is on your machine and is in the PATH. Here are some resources from the internet that'll help you.
-   * Download the latest Chrome Webdriver https://chromedriver.chromium.org/
-   * Setting it up (skip the download): https://splinter.readthedocs.io/en/0.1/setup-chrome.html
-   * Or install with Homebrew: https://stackoverflow.com/questions/38081021/using-selenium-on-mac-chrome
-   * Install on Windows: https://www.youtube.com/watch?v=dz59GsdvUF8  
-3. Run the standalone server jar file - it should look something like below:
-    * `java -jar selenium-server-standalone-3.141.59.jar` (Replace the jar file name with your jar file name) 
-    * This will run Selenium on localhost and on port 4444
-4. Install Node.js from [here](https://nodejs.org/en/)
+Learn more about how to install and start this project with our [WebdriverIO 6 tutorial](https://applitools.com/tutorials/webdriverio6.html)!
 
+<https://applitools.com/tutorials/webdriverio6.html>
 
-## Running the Example Project
+## More Information
 
-1. Download the example
-    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio-ultrafastgrid.git`
-    * Option 2: Download it as a Zip file and extract it
-2. CD into the `tutorial-webdriverio-ulgrafastgrid` folder
-3. Change the `APPLITOOLS_API_KEY` with your own.
-    * Login to Applitools > Click on the Person icon > My API Key
-4. run `npm install`
-5. run `npm test`
+Learn more about Applitools [Eyes](https://info.applitools.com/ucY77) and the [Ultrafast Test Cloud](https://info.applitools.com/ucY78) at [applitools.com](https://info.applitools.com/ucY76).
 
-## Add Applitools Eyes to an Existing Node.js Project
-
-```sh
-npm install "@applitools/eyes.webdriverio" --save-dev
-
-```
+More about the Eyes WebdriverIO 6 SDK:
+* https://www.npmjs.com/package/@applitools/eyes.webdriverio
