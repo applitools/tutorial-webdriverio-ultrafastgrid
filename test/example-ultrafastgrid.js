@@ -41,9 +41,6 @@ describe('wdio', function () {
         // Initialize eyes Configuration
         const configuration = new Configuration();
 
-        // You can get your api key from the Applitools dashboard
-        configuration.setApiKey(process.env.APPLITOOLS_API_KEY || 'APPLITOOLS_API_KEY')
-
         // create a new batch info instance and set it to the configuration
         configuration.setBatch(new BatchInfo('Ultrafast Batch'))
 
