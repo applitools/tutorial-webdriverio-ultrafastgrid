@@ -24,7 +24,8 @@ describe('wdio', function () {
         const chrome = {
             desiredCapabilities: {
                 browserName: 'chrome'
-            }
+            },
+            host: (process.env.CI === 'true') ? 'selenium' : '127.0.0.1'
         };
 
         // Create a new chrome web driver
@@ -62,7 +63,7 @@ describe('wdio', function () {
     it('Ultrafast grid Test', async () => {
 
         // Call Open on eyes to initialize a test session
-        driver = await eyes.open(driver, 'Demo App', 'Ultrafast grid demo', new RectangleSize(800, 600));
+        await eyes.open(driver, 'Demo App - Wdio', 'Ultrafast grid demo', new RectangleSize(800, 600));
 
         // Navigate the browser to the "ACME" demo app.
         // ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
@@ -83,7 +84,7 @@ describe('wdio', function () {
         await eyes.check('App Window', Target.window().fully());
 
         // End the test
-        await eyes.closeAsync();
+        await eyes.close(false);
     });
 
     after(async () => {
@@ -91,10 +92,8 @@ describe('wdio', function () {
         await driver.end();
 
         // If the test was aborted before eyes.close was called, ends the test as aborted.
-        await eyes.abortAsync();
+        await eyes.abort();
 
-        // we pass false to this method to suppress the exception that is thrown if we
-        // find visual differences
         const results = await eyes.getRunner().getAllTestResults();
         console.log(results);
     });
