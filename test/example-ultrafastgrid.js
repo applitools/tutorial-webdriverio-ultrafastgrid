@@ -43,7 +43,7 @@ describe('wdio', function () {
         const configuration = new Configuration();
 
         // create a new batch info instance and set it to the configuration
-        configuration.setBatch(new BatchInfo('Ultrafast Batch - WDIO 4 - Ultrafast'))
+        configuration.setBatch(new BatchInfo('Demo Batch - WDIO 4 - Ultrafast'))
 
         // Add browsers with different viewports
         configuration.addBrowser(800, 600, BrowserType.CHROME);
