@@ -63,7 +63,7 @@ describe('wdio', function () {
     it('Ultrafast grid Test', async () => {
 
         // Call Open on eyes to initialize a test session
-        await eyes.open(driver, 'Demo App', 'Ultrafast grid demo', new RectangleSize(800, 600));
+        await eyes.open(driver, 'Demo App - Wdio', 'Ultrafast grid demo', new RectangleSize(800, 600));
 
         // Navigate the browser to the "ACME" demo app.
         // ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
@@ -84,7 +84,7 @@ describe('wdio', function () {
         await eyes.check('App Window', Target.window().fully());
 
         // End the test
-        await eyes.close();
+        await eyes.close(false);
     });
 
     after(async () => {
