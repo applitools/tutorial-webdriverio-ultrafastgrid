@@ -1,0 +1,45 @@
+name: Updates
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  test:
+    container: node:current
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    services:
+      selenium:
+        image: selenium/standalone-chrome
+        options: --health-cmd '/opt/bin/check-grid.sh'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install -g npm-check-updates
+
+      - name: Check for Updates
+        run: ncu -u --target minor
+
+      - name: Install Updates
+        run: npm install
+
+      - run: npm test
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'master'
