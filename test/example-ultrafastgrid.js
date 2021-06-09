@@ -43,7 +43,7 @@ describe('wdio', function () {
         const configuration = new Configuration();
 
         // create a new batch info instance and set it to the configuration
-        configuration.setBatch(new BatchInfo('Ultrafast Batch'))
+        configuration.setBatch(new BatchInfo('Ultrafast Batch - WDIO 4 - Ultrafast'))
 
         // Add browsers with different viewports
         configuration.addBrowser(800, 600, BrowserType.CHROME);
@@ -63,7 +63,7 @@ describe('wdio', function () {
     it('Ultrafast grid Test', async () => {
 
         // Call Open on eyes to initialize a test session
-        await eyes.open(driver, 'Demo App - Wdio', 'Ultrafast grid demo', new RectangleSize(800, 600));
+        await eyes.open(driver, 'Demo App - WDIO 4 - Ultrafast', 'Smoke Test - WDIO 4 - Ultrafast', new RectangleSize(800, 600));
 
         // Navigate the browser to the "ACME" demo app.
         // ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
