@@ -9,7 +9,7 @@
   "author": "Raja Rao Dv",
   "license": "ISC",
   "devDependencies": {
-    "@applitools/eyes.webdriverio": "^2.30.3",
+    "@applitools/eyes.webdriverio": "^2.31.0",
     "mocha": "^8.4.0",
     "webdriverio": "^4.14.4"
   }
